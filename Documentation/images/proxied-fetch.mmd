@@ -1,0 +1,16 @@
+sequenceDiagram
+    participant User as Your Machine<br/>(Claude CLI)
+    participant API as Anthropic API<br/>(api.anthropic.com)
+    participant Target as Target Website<br/>(example.com)
+
+    User->>API: POST /v1/messages (prompt + conversation)
+
+    Note over API: API server fetches on your behalf
+
+    API->>Target: GET https://example.com
+    Target-->>API: 200 OK (page content)
+
+    Note over API: Target server sees ANTHROPIC's IP address
+    Note over API: Anthropic can read the fetched content
+
+    API-->>User: Response: summary of the page

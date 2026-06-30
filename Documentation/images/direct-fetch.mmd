@@ -1,0 +1,17 @@
+sequenceDiagram
+    participant User as Your Machine<br/>(Claude CLI)
+    participant API as Anthropic API<br/>(api.anthropic.com)
+    participant Target as Target Website<br/>(example.com)
+
+    User->>API: POST /v1/messages (prompt + conversation)
+    API-->>User: Response: "use WebFetch on example.com"
+
+    Note over User: Claude CLI executes WebFetch locally
+
+    User->>Target: GET https://example.com<br/>User-Agent: Claude-User
+    Target-->>User: 200 OK (page content)
+
+    Note over User: Target server sees YOUR IP address
+
+    User->>API: POST /v1/messages (tool result + page content)
+    API-->>User: Response: summary of the page

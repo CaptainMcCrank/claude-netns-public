@@ -1,0 +1,23 @@
+# capture artifacts — may contain decrypted secrets (auth tokens). Never commit.
+*.pcap
+*.pcapng
+*.log
+mitm.txt
+*.mitm
+flows*
+claude-stdout.txt
+__pycache__/
+*.pyc
+.venv/
+LLM_Pre-Prompts
+
+# recording output — generated artifacts, not source
+recordings/*.cast
+recordings/*.gif
+recordings/*.webm
+
+# un-ignore mock data (intentionally tracked, secrets redacted)
+!recording-scripts/mock-data/mitm.txt
+!recording-scripts/mock-data/mitm-websearch.txt
+!recording-scripts/mock-data/claude-stdout.txt
+!recording-scripts/mock-data/*.pcap
