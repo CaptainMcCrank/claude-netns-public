@@ -67,8 +67,8 @@ This repo handles both:
 ## Install
 
 ```bash
-git clone git@github.com:CaptainMcCrank/claude-netns.git
-cd claude-netns
+git clone git@github.com:CaptainMcCrank/claude-netns-public.git
+cd claude-netns-public
 chmod +x claude-sandbox.sh claude-mitm.sh
 ```
 
